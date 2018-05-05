@@ -43,12 +43,13 @@ filters = ["alien_goggles",
            "yellow_collage",
            "yellow_paper"]
 
-print(API_KEY)
 
-# input = {"images": ["_IMAGE_URL_"], 
-#         "savePaths": ["_OUTPUT_URL_"], 
-#         "filterName": "space_pizza"}
-# client = Algorithmia.client(API_KEY)
-# algo = client.algo('deeplearning/DeepFilter/0.5.3')
 
-# print algo.pipe(input)
+input = {"images": ["data://simon_bdz/huskies/10.jpg"], 
+        "savePaths": ["data://simonbdz/stylized/10.jpg"], 
+        "filterName": "space_pizza"}
+client = Algorithmia.client(API_KEY)
+algo = client.algo('deeplearning/DeepFilter/0.5.3')
+
+print(algo.pipe(input))
+

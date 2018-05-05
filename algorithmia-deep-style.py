@@ -1,5 +1,11 @@
 import Algorithmia
 
+try:    
+    with open('./secrets/algorithmia.key','r') as f:
+        API_KEY = f.read()
+except:
+    print("You must create \"/secrets/algorithmia.key\" with your API key on it.")
+
 filters = ["alien_goggles",
            "aqua",
            "blue_brush",
@@ -37,10 +43,12 @@ filters = ["alien_goggles",
            "yellow_collage",
            "yellow_paper"]
 
-input = {"images": ["_IMAGE_URL_"], 
-        "savePaths": ["_OUTPUT_URL_"], 
-        "filterName": "space_pizza"}
-client = Algorithmia.client('_API_KEY_')
-algo = client.algo('deeplearning/DeepFilter/0.5.3')
+print(API_KEY)
 
-print algo.pipe(input)
+# input = {"images": ["_IMAGE_URL_"], 
+#         "savePaths": ["_OUTPUT_URL_"], 
+#         "filterName": "space_pizza"}
+# client = Algorithmia.client(API_KEY)
+# algo = client.algo('deeplearning/DeepFilter/0.5.3')
+
+# print algo.pipe(input)
